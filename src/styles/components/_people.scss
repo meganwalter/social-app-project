@@ -1,0 +1,29 @@
+.people-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  object-fit: cover;
+
+  &__person {
+    text-align: center;
+    margin: 7rem 5rem;
+
+    &--image {
+      width: 20rem;
+      height: 20rem;
+      border-radius: 20rem;
+      object-fit: cover;
+      box-shadow: 3px 3px 5px 0px rgba($color-black,0.75);
+    }
+    & p {
+      color: $color-orange-dark;
+      font-weight: 400;
+      margin-top: 1rem;
+      font-size: 1.8rem;
+    }
+    &:hover {
+      transform: scale(1.2)
+    }
+  }
+}

@@ -1,0 +1,28 @@
+/* Home Page Header */
+.header-index {
+  min-height: 20rem;
+  height: auto;
+  background-image:
+    linear-gradient(
+    to bottom,
+    rgba($color-black, 0.5),
+    rgba($color-grey-dark, 0.5)),
+    url(https://i.pinimg.com/originals/43/f7/71/43f771d4c324448eedd9801dceb64118.jpg);
+  background-position: 0% 20%;
+  background-size: cover;
+  color: $color-grey-light;
+  text-shadow: 1px 1px 1px $color-black;
+  letter-spacing: .5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba($color-black,0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba($color-black,0.75);
+  box-shadow: 0px 3px 5px 0px rgba($color-black,0.75);
+
+    &__title {
+      font-size: 6rem;
+      padding: 1rem;
+    }
+}
