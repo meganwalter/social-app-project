@@ -12,11 +12,6 @@ class ProfilePage extends Component {
     this.props.fetchUsers()
   }
 
-  onCommentSubmit = (values) => {
-    const {id} = this.props.match.params;
-    this.props.postComment(values, id)
-  }
-
   renderComments() {
     const reversed = this.props.user.posts.reverse();
     return reversed.map((post) => {
@@ -45,7 +40,7 @@ class ProfilePage extends Component {
             <h2>{user.name}</h2>
           </div>
           <div className="profile-comments">
-            <CommentForm onSubmit={this.onCommentSubmit}/>
+            <CommentForm userId={user.id}/>
           </div>
         </div>
         <div className="posts-block">

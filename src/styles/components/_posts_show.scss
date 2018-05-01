@@ -1,0 +1,28 @@
+.posts-block {
+  padding-top: 3rem;
+  width: 50%;
+  height: auto;
+  text-align: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &__title {
+    font-size: 6rem;
+  }
+  &__post {
+    display: block;
+    padding: 4rem 4rem;
+  }
+  &__text {
+    font-size: 1.6rem;
+    border-bottom: 1px solid $color-blue-light;
+    padding: 2px;
+  }
+  &__byline {
+    text-align: right;
+    font-weight: 700;
+    padding: .8rem 2rem;
+    color: $color-orange-dark;
+    font-size: 1.6rem;
+  }
+}

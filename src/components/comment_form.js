@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, reset } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { postComment } from '../actions'
 
 class CommentForm extends Component {
+
+  onCommentSubmit = (values) => {
+    const {userId} = this.props;
+    this.props.postComment(values, userId)
+    this.props.reset()
+  }
 
   renderCommentField(field) {
     return (
@@ -31,19 +37,19 @@ class CommentForm extends Component {
   }
 
   render() {
-    const { handleSubmit, onSubmit } = this.props;
+    const { handleSubmit, onSubmit, resetForm } = this.props;
     return (
-      <form className="profile-comments__form" onSubmit={handleSubmit(onSubmit.bind(this))}>
+      <form className="profile-comments" onSubmit={handleSubmit(this.onCommentSubmit.bind(this))}>
         <Field
-        name="content"
-        component={this.renderCommentField}
-      />
+          name="content"
+          component={this.renderCommentField}
+        />
         <Field
-        name="poster"
-        component={this.renderBylineField}
-      />
-      <button className="profile-comments__post-button" type="submit">Post my Comment</button>
-    </form>
+          name="poster"
+          component={this.renderBylineField}
+        />
+        <button className="profile-comments__post-button" type="submit">Post my Comment</button>
+      </form>
     )
   }
 }

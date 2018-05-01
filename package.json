@@ -5,7 +5,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
-    "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -19,8 +18,8 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/styles/styles.scss -o src/styles",
-    "watch-css": "npm run build-css && node-sass-chokidar src/styles/styles.scss -o src/styles --watch --recursive",
+    "build-css": "node-sass src/styles/styles.scss src/styles/styles.css",
+    "watch-css": "npm run build-css && node-sass src/styles/styles.scss src/styles --watch",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
@@ -29,6 +28,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "node-sass": "^4.9.0"
+    "node-sass": "^4.9.0",
+    "node-sass-chokidar": "^1.2.2"
   }
 }
