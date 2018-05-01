@@ -14,7 +14,7 @@ class ProfilePage extends Component {
 
   onCommentSubmit = (values) => {
     const {id} = this.props.match.params;
-    postComment(values, id)
+    this.props.postComment(values, id)
   }
 
   renderComments() {

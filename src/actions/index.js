@@ -25,6 +25,6 @@ export function sendComment(data) {
 }
 
 export function postComment(values, id) {
-  axios.post(`${ROOT_URL}${id}/posts`, values)
+  return axios.post(`${ROOT_URL}${id}/posts`, values)
   .then((data) => sendComment(data))
 }

@@ -7,8 +7,10 @@ export default function (state = {}, action) {
       const objectData = { ... action.payload.data.data};
       return _.mapKeys(objectData, 'id')
     case UPDATE_USER:
-      console.log('done!')
-      return state;
+      console.log(action.payload)
+      return Object.assign({}, state, {
+        [action.payload.id] : action.payload
+      });
     default:
       return state;
   }
