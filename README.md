@@ -2,10 +2,10 @@
 
 ## Installation:
 
-> git clone git@github.com:meganwalter/social-app-project.git
-> cd social-app-project
-> npm install
-> npm run start-js
+- `git clone git@github.com:meganwalter/social-app-project.git`
+- `cd social-app-project`
+- `npm install`
+- `npm run start-js`
 
 Note, I ran across a CORS issue with the API and used [this](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en) to temporarily resolve for development.
 
