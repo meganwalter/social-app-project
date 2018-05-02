@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchUsers, postComment } from '../actions';
-
-import CommentForm from './comment_form'
-import HomeIcon from '../images/home-icon.png'
+import ProfileComment from './profile_comment_view'
+import ProfileViewLeft from './profile_view_left'
 
 class ProfilePage extends Component {
 
@@ -12,14 +10,15 @@ class ProfilePage extends Component {
     this.props.fetchUsers()
   }
 
-  renderComments() {
+  _generateNumericKey() {
+    return Math.floor( Math.random() * new Date().getTime() )
+  }
+
+  _renderComments() {
     const reversed = this.props.user.posts.reverse();
-    return reversed.map((post) => {
+    return reversed.map(( post ) => {
       return (
-        <div className="posts-block__post">
-          <p className="posts-block__text">&quot;{post.content}&quot;</p>
-          <p className="posts-block__byline">- {post.poster}</p>
-        </div>
+        <ProfileComment key={ `comment_${ this._generateNumericKey() }`} content={post.content} poster={post.poster}/>
       )
     })
   }
@@ -33,19 +32,10 @@ class ProfilePage extends Component {
 
     return (
       <div className="inside-block inside-block--flex">
-        <div className="profile-block">
-          <Link className="home-link" to="/"><img className="home-link__image" src={HomeIcon}/></Link>
-          <img className="profile-block__image" src={user.image} />
-          <div className="profile-block__title">
-            <h2>{user.name}</h2>
-          </div>
-          <div className="profile-comments">
-            <CommentForm userId={user.id}/>
-          </div>
-        </div>
+      <ProfileViewLeft image={user.image} name={user.name} userId={user.id} posts={this._renderComments}/>
         <div className="posts-block">
           <h1 className="posts-block__title">Posts</h1>
-        {this.renderComments()}
+        {this._renderComments()}
         </div>
       </div>
     )

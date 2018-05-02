@@ -1,9 +1,6 @@
 import axios from 'axios';
-import thunk from 'redux-thunk';
-import {reset} from 'redux-form';
 
 export const FETCH_USERS = 'fetch_users';
-export const SEND_COMMENT = 'send_comment';
 export const UPDATE_USER = 'update_user';
 
 const ROOT_URL = 'https://megan-bh-interview.now.sh/users/';
@@ -16,7 +13,6 @@ export function fetchUsers() {
     payload: request
   };
 }
-
 
 export function sendComment(data) {
   return {

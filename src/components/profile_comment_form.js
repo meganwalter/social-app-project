@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Field, reduxForm, reset } from 'redux-form'
-import { Link } from 'react-router-dom'
+import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { postComment } from '../actions'
 
@@ -37,7 +36,7 @@ class CommentForm extends Component {
   }
 
   render() {
-    const { handleSubmit, onSubmit, resetForm } = this.props;
+    const { handleSubmit } = this.props;
     return (
       <form className="profile-comments" onSubmit={handleSubmit(this.onCommentSubmit.bind(this))}>
         <Field

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import _ from 'lodash'
 import { fetchUsers } from '../actions'
+import HomeUserView from './home_user_view'
 
 class IndexPage extends Component {
 
@@ -13,12 +13,7 @@ class IndexPage extends Component {
   renderUsers() {
     return _.map(this.props.users, user => {
       return (
-        <div key={user.id} className="people-container__person">
-          <Link to={`/users/${user.id}`}>
-            <img className="people-container__person--image" src={user.image} />
-          </Link>
-          <p>{user.name}</p>
-        </div>
+        <HomeUserView userId={user.id} name={user.name} image={user.image}/>
       )
     })
   }

@@ -1,8 +1,8 @@
 @import "base/base";
 @import "abstracts/variables";
-@import "layout/app";
 @import "layout/header";
 @import "components/people";
 @import "components/profile";
 @import "components/posts_show";
-@import "components/posts_form"
+@import "components/posts_form";
+@import "layout/app";
