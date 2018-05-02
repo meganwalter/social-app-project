@@ -13,7 +13,7 @@ class IndexPage extends Component {
   renderUsers() {
     return _.map(this.props.users, user => {
       return (
-        <HomeUserView userId={user.id} name={user.name} image={user.image}/>
+        <HomeUserView key={`user_${user.id}`} userId={user.id} name={user.name} image={user.image}/>
       )
     })
   }
